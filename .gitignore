@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+.superpowers/
+.pnpm-store/
+.claude/
+docs/superpowers/**/*
+
+# Build artifacts
+build/
+dist/
+.wrangler/
+
+# Generated files
+.react-router/
+worker-configuration.d.ts

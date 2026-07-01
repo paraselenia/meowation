@@ -1,0 +1,19 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@latest
+  vite-plus: latest
+minimumReleaseAge: 1440
+overrides:
+  vite: "catalog:"
+  semver: "^7"
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"
+  ignoreMissing:
+    - "@types/node"
+trustPolicy: no-downgrade
