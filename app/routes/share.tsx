@@ -1,12 +1,19 @@
 import { useRef } from "react";
-import type { MetaFunction } from "react-router";
 import { Link, useSearchParams } from "react-router";
+import type { Route } from "./+types/share";
+
 import { AvatarCanvas } from "../components/AvatarCanvas";
 import { useAssets } from "../hooks/useAssets";
 import { useAvatarState } from "../hooks/useAvatarState";
 import { useSvgComposer } from "../hooks/useSvgComposer";
 
-export const meta: MetaFunction = () => [{ title: "meowation" }];
+export function meta({ location }: Route.MetaArgs) {
+  return [
+    { title: "meowation" },
+    { property: "og:image", content: `/og${location.search}` },
+    { property: "og:type", content: "website" },
+  ];
+}
 
 export default function Share() {
   const containerRef = useRef<HTMLDivElement>(null);
