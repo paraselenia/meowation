@@ -85,8 +85,8 @@ export function BottomPanel({
   const [activeTab, setActiveTab] = useState<Tab>("base");
 
   return (
-    <div className="flex flex-col bg-white border-t border-gray-200">
-      <div className="flex border-b border-gray-100">
+    <div className="flex flex-col bg-white">
+      <div className="flex border-b border-gray-200">
         {(Object.keys(TAB_LABELS) as Tab[]).map((tab) => (
           <button
             key={tab}

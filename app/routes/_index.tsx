@@ -84,7 +84,7 @@ export default function Index() {
       </div>
 
       {/* Mobile: bottom panel */}
-      <div className="md:hidden">
+      <div className="md:hidden border-t border-gray-200">
         <BottomPanel
           bases={bases}
           selectedBase={state.base}
