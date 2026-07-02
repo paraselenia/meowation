@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 719.25 982.13">
   <g id="pattern">
-    <g id="pattern_01" opacity="0.5">
+    <g id="pattern_01" opacity=".8">
       <ellipse cx="255.62" cy="143.01" rx="35.7" ry="8.11" transform="translate(81.6 378.62) rotate(-82.78)"/>
       <ellipse cx="284.19" cy="142.54" rx="31.65" ry="7.19" transform="translate(107.04 406.55) rotate(-82.78)"/>
       <ellipse cx="227.04" cy="135.3" rx="31.65" ry="7.19" transform="translate(64.26 343.52) rotate(-82.78)"/>

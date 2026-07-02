@@ -28,12 +28,21 @@ export function buildComposedSvg(
   const bodyXml = bodyEl ? serialize(bodyEl).replace(/\sid="body"/, "") : "";
 
   const baseGroup = baseDoc.getElementById("base");
-  const baseContent = baseGroup
-    ? Array.from(baseGroup.childNodes)
-        .filter((n) => n.nodeType === 1)
-        .map((n) => serialize(n as Element))
-        .join("")
-    : "";
+  const baseChildren = baseGroup
+    ? Array.from(baseGroup.childNodes).filter((n) => n.nodeType === 1)
+    : [];
+
+  const FACE_IDS = new Set(["eye_left", "eye_right", "nose", "mouth"]);
+
+  const baseContent = baseChildren
+    .filter((n) => !FACE_IDS.has((n as Element).getAttribute("id") ?? ""))
+    .map((n) => serialize(n as Element))
+    .join("");
+
+  const faceContent = baseChildren
+    .filter((n) => FACE_IDS.has((n as Element).getAttribute("id") ?? ""))
+    .map((n) => serialize(n as Element))
+    .join("");
 
   const patternContent = patternSvgTexts
     .map((text) => {
@@ -60,6 +69,7 @@ export function buildComposedSvg(
     `<g id="layer-base">${baseContent}</g>`,
     `<g id="layer-patterns" clip-path="url(#body-clip)">${patternContent}</g>`,
     `<g id="layer-items">${itemContent}</g>`,
+    `<g id="layer-face">${faceContent}</g>`,
     "</svg>",
   ].join("");
 }
