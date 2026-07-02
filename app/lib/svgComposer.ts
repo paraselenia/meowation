@@ -57,7 +57,7 @@ export function composeSvg(
     .join("");
 
   return [
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 719.25 982.13">',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 719.25 982.13" width="100%" height="100%">',
     "<defs>",
     `<clipPath id="body-clip">${bodyHtml}</clipPath>`,
     "</defs>",
