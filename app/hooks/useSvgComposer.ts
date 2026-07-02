@@ -51,6 +51,7 @@ export function useSvgComposer(
     colors.eye_right,
     colors.nose,
     colors.mouth,
+    // baseUrls/patternUrls/itemUrls are module-level constants from useAssets — stable references
     baseUrls,
     patternUrls,
     itemUrls,
