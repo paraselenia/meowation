@@ -74,7 +74,7 @@ export function ColorEditor({ colors, selectedPart, onSelectPart, onSetColor }: 
             onClick={() => handlePartClick(part)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border-2 transition-colors ${
               selectedPart === part
-                ? "border-blue-500 bg-blue-50 text-blue-700"
+                ? "border-black bg-gray-100 text-black"
                 : "border-gray-200 text-gray-700"
             }`}
           >
