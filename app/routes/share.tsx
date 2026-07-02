@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link, useSearchParams } from "react-router";
+import type { MetaFunction } from "react-router";
 import type { Route } from "./+types/share";
 
 import { AvatarCanvas } from "../components/AvatarCanvas";
@@ -7,13 +8,16 @@ import { useAssets } from "../hooks/useAssets";
 import { useAvatarState } from "../hooks/useAvatarState";
 import { useSvgComposer } from "../hooks/useSvgComposer";
 
-export function meta({ location }: Route.MetaArgs) {
-  return [
-    { title: "meowation" },
-    { property: "og:image", content: `/og${location.search}` },
-    { property: "og:type", content: "website" },
-  ];
+export async function loader({ request }: Route.LoaderArgs) {
+  const url = new URL(request.url);
+  return { ogImageUrl: `${url.origin}/og${url.search}` };
 }
+
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => [
+  { title: "meowation" },
+  { property: "og:image", content: loaderData?.ogImageUrl },
+  { property: "og:type", content: "website" },
+];
 
 export default function Share() {
   const containerRef = useRef<HTMLDivElement>(null);
