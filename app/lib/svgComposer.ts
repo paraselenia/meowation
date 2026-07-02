@@ -14,7 +14,7 @@ export function composeSvg(
   itemSvgTexts: string[],
   colors: AvatarColors,
 ): string {
-  const parse = (text: string) => new DOMParser().parseFromString(text, "text/html");
+  const parse = (text: string) => new DOMParser().parseFromString(text, "image/svg+xml");
 
   const baseDoc = parse(baseSvgText);
 
@@ -24,9 +24,9 @@ export function composeSvg(
     el?.setAttribute(attr, colors[id]);
   });
 
-  // body要素をclipPath用に取得
+  // body要素をclipPath用に取得（idを除去して重複を避ける）
   const bodyEl = baseDoc.getElementById("body");
-  const bodyHtml = bodyEl ? bodyEl.outerHTML : "";
+  const bodyHtml = bodyEl ? bodyEl.outerHTML.replace(/\sid="body"/, "") : "";
 
   // ベースレイヤーのコンテンツ
   const baseGroup = baseDoc.getElementById("base");
@@ -40,7 +40,8 @@ export function composeSvg(
   const patternContent = patternSvgTexts
     .map((text) => {
       const doc = parse(text);
-      return Array.from(doc.querySelectorAll("[id^='pattern']"))
+      // [id^='pattern_'] でネストされたコンテンツグループのみ選択（ラッパーの #pattern は除外）
+      return Array.from(doc.querySelectorAll("[id^='pattern_']"))
         .map((el) => el.outerHTML)
         .join("");
     })
