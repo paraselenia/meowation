@@ -10,13 +10,16 @@ export function AvatarCanvas({ svgContent, containerRef }: Props) {
     return (
       <div
         ref={containerRef}
-        className="w-full h-full flex items-center justify-center bg-gray-50"
+        className="w-full h-full flex items-center justify-center bg-white py-6"
         dangerouslySetInnerHTML={{ __html: svgContent }}
       />
     );
   }
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center bg-gray-50">
+    <div
+      ref={containerRef}
+      className="w-full h-full flex items-center justify-center bg-white py-6"
+    >
       <div className="text-gray-400 text-sm">Loading...</div>
     </div>
   );
