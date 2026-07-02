@@ -1,5 +1,5 @@
 // app/routes/_index.tsx
-import { useRef } from "react";
+import { useRef, useState, useCallback } from "react";
 import type { MetaFunction } from "react-router";
 import { AvatarCanvas } from "../components/AvatarCanvas";
 import { BottomPanel } from "../components/BottomPanel";
@@ -12,8 +12,15 @@ export const meta: MetaFunction = () => [{ title: "meowation" }];
 
 export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
   const { state, setBase, togglePattern, toggleItem, setColor, setSelectedPart, shareUrl } =
     useAvatarState();
+
+  const handleShare = useCallback(async () => {
+    await shareUrl();
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }, [shareUrl]);
   const { bases, patterns, items, baseUrls, patternUrls, itemUrls } = useAssets();
   const svgContent = useSvgComposer(state, baseUrls, patternUrls, itemUrls);
 
@@ -25,10 +32,10 @@ export default function Index() {
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={shareUrl}
+            onClick={handleShare}
             className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            Share
+            {copied ? "Copied!" : "Share"}
           </button>
           <ExportButton containerRef={containerRef} />
         </div>
@@ -41,10 +48,10 @@ export default function Index() {
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={shareUrl}
+              onClick={handleShare}
               className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >
-              Share
+              {copied ? "Copied!" : "Share"}
             </button>
             <ExportButton containerRef={containerRef} />
           </div>

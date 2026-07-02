@@ -49,9 +49,11 @@ export function useAvatarState() {
 
   const handleSetSelectedPart = useCallback((part: ColorPart | null) => setSelectedPart(part), []);
 
-  const shareUrl = useCallback(() => {
+  const shareUrl = useCallback(async () => {
     if (typeof navigator !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
+      const url = new URL(window.location.href);
+      url.pathname = "/share";
+      await navigator.clipboard.writeText(url.toString());
     }
   }, []);
 
