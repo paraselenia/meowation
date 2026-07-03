@@ -9,6 +9,7 @@
     "check": "vp check",
     "test": "vp test",
     "deploy": "pnpm build && wrangler deploy",
+    "normalize-svg": "node --experimental-strip-types scripts/normalize-svg.ts",
     "cf-typegen": "wrangler types",
     "prepare": "vp config"
   },

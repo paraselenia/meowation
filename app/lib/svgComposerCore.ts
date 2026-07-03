@@ -47,9 +47,8 @@ export function buildComposedSvg(
   const patternContent = patternSvgTexts
     .map((text) => {
       const doc = parse(text);
-      return Array.from(doc.querySelectorAll("[id^='pattern_']"))
-        .map((el) => serialize(el))
-        .join("");
+      const patternEl = doc.getElementById("pattern");
+      return patternEl ? serialize(patternEl) : "";
     })
     .join("");
 
