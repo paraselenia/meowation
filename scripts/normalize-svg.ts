@@ -150,13 +150,6 @@ ${children}
 `;
 }
 
-function detectCategory(filePath: string): string {
-  if (filePath.includes("/base/")) return "base";
-  if (filePath.includes("/item/")) return "item";
-  if (filePath.includes("/pattern/")) return "pattern";
-  throw new Error(`Cannot detect category — path must contain /base/, /item/, or /pattern/`);
-}
-
 const files = process.argv.slice(2);
 if (files.length === 0) {
   console.error("Usage: node --experimental-strip-types scripts/normalize-svg.ts <file.svg>...");
@@ -166,10 +159,9 @@ if (files.length === 0) {
 let allOk = true;
 for (const filePath of files) {
   try {
-    const category = detectCategory(filePath);
     const result = normalize(filePath);
     writeFileSync(filePath, result);
-    console.log(`✓ [${category}] ${filePath}`);
+    console.log(`✓ ${filePath}`);
   } catch (err) {
     console.error(`✗ ${filePath}: ${err instanceof Error ? err.message : err}`);
     allOk = false;
