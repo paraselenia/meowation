@@ -1,5 +1,5 @@
 // app/env.test.ts
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vite-plus/test";
 
 describe("Workers runtime environment", () => {
   it("has Web API globals available", () => {

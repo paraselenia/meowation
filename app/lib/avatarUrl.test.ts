@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect } from "vite-plus/test";
 import { stateToParams, paramsToState, DEFAULT_STATE, type AvatarState } from "./avatarUrl";
 
 describe("stateToParams / paramsToState", () => {

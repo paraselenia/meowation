@@ -3,17 +3,32 @@ allowBuilds:
   sharp: true
   workerd: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vitest: 4.1.10
+  vite-plus: 0.2.4
 minimumReleaseAge: 1440
 overrides:
   vite: "catalog:"
+  vitest: "catalog:"
   semver: "^7"
 peerDependencyRules:
   allowAny:
     - vite
+    - vitest
   allowedVersions:
     vite: "*"
+    vitest: "*"
   ignoreMissing:
     - "@types/node"
 trustPolicy: no-downgrade
+minimumReleaseAgeExclude:
+  - vite-plus
+  - "@voidzero-dev/*"
+  - oxlint
+  - "@oxlint/*"
+  - oxlint-tsgolint
+  - "@oxlint-tsgolint/*"
+  - oxfmt
+  - "@oxfmt/*"
+  - vitest
+  - "@vitest/*"
