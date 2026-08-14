@@ -23,4 +23,4 @@ Share it with a URL or export it as a PNG.
 
 ## Tech Stack
 
-React Router 8 · Cloudflare Workers · Tailwind CSS · resvg-wasm
+React Router 8 · Cloudflare Workers · Tailwind CSS
