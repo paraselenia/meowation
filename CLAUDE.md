@@ -35,4 +35,4 @@ Run `pnpm check` before considering any change complete.
 Do not edit these — they are auto-generated:
 
 - `.react-router/` — route types (regenerated on `pnpm dev`/`pnpm build`)
-- `workers-configuration.d.ts` — Cloudflare worker types (regenerate with `pnpm cf-typegen`)
+- `worker-configuration.d.ts` — Cloudflare worker types (regenerate with `pnpm cf-typegen`)
