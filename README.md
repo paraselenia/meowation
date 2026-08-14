@@ -2,7 +2,7 @@
 
 > A customizable cat avatar generator.
 
-![meowation avatar example](.github/avatar.png)
+<img src=".github/avatar.png" alt="meowation avatar example" width="300">
 
 Mix and match bases, patterns, items, and colors to create your unique cat avatar.
 Share it with a URL or export it as a PNG.
