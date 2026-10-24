@@ -1,6 +1,7 @@
 {
   "name": "meowation",
   "version": "1.0.0",
+  "private": true,
   "license": "ISC",
   "type": "module",
   "scripts": {
@@ -38,7 +39,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^12.9.1",
+      "version": "^12.15.0",
       "onFail": "download"
     }
   }
