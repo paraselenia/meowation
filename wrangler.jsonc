@@ -1,6 +1,6 @@
 {
   "name": "meowation",
-  "compatibility_date": "2026-06-30",
+  "compatibility_date": "2026-10-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./workers/app.ts",
   "assets": {
